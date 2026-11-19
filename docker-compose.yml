@@ -1,0 +1,14 @@
+services:
+  iptv-api:
+    image: docker.1ms.run/guovern/iptv-api:latest
+    container_name: iptv-api
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /volume2/docker/iptv-api/config:/iptv-api/config
+      - /volume2/docker/iptv-api/output:/iptv-api/output
+    environment:
+      PUBLIC_SCHEME: "http"
+      PUBLIC_URL: "http://192.168.31.231:8080"
+      PUBLIC_PORT: "8080"
+      TZ: "Asia/Shanghai"
